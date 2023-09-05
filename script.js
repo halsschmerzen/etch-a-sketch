@@ -1,3 +1,5 @@
+// let size = prompt("Enter your size (e.g: 32 = 32x32 Pixels)")
+
 const squareContainer = document.getElementById("sketch-container");
 
 
@@ -28,6 +30,6 @@ function mouseDiv() {
         })
     })
 }
-makeRows(16,16);
+makeRows(32,32);
 mouseDiv();
 
