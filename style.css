@@ -8,21 +8,22 @@
 
     margin: auto;
     margin-top: 5rem;
-    width: 800px;
-    height: 800px;
+    width: 1500px;
+    height: 1500px;
     display: grid;
 
 }
 
-.divRow {
+#divRow {
     width: 100%;
     height: 100%;
     display: flex;
 }
 
-.divColumn {
+#divColumn {
     width: 100%;
     height: 100%;
     border: 1px solid black;
 
 }
+
