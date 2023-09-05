@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.sketch-container {
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 5rem;
+    width: 800px;
+    height: 800px;
+}
