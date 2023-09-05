@@ -4,10 +4,25 @@
     box-sizing: border-box;
 }
 
-.sketch-container {
-    border: 1px solid black;
+#sketch-container {
+
     margin: auto;
     margin-top: 5rem;
     width: 800px;
     height: 800px;
+    display: grid;
+
+}
+
+.divRow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.divColumn {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+
 }
