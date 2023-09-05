@@ -22,7 +22,7 @@
     padding: 12px;
     border: 3px solid white;
     border-radius: 8px;
-    background-color: red;
+    background-color: rgb(160, 7, 71);
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
@@ -32,6 +32,10 @@
 
 #button-container #rgb-mode {
     background-color: purple;
+}
+
+#button-container #eraser-mode {
+    background-color:plum;
 }
 
 

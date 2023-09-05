@@ -1,7 +1,6 @@
-// let size = prompt("Enter your size (e.g: 32 = 32x32 Pixels)")
-
 const squareContainer = document.getElementById("sketch-container");
 let rgbSwitch = false;
+let eraserSwitch = false;
 
 function rgbSwitcher() {
   const rgbButton = document.querySelectorAll("#rgb-mode");
@@ -19,9 +18,43 @@ function rgbSwitcher() {
   });
 }
 
+function eraserButton() {
+  const eraButton = document.querySelectorAll("#eraser-mode");
+  const eraStatus = document.querySelector("#eraser-status");
+
+  eraButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      eraserSwitch = !eraserSwitch;
+      if (eraserSwitch) {
+        eraStatus.textContent = "Eraser: on";
+        console.log(eraserSwitch);
+      } else {
+        eraStatus.textContent = "Eraser: off";
+        console.log(eraserSwitch);
+      }
+    });
+  });
+}
+
+function resetCanvas() {
+  const columnDivs = document.querySelectorAll("#divColumn");
+  columnDivs.forEach((columnDiv) => {
+    columnDiv.style.background = "white";
+  });
+}
+
+function resetButton() {
+  const resButton = document.querySelectorAll("#reset-button");
+  resButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      resetCanvas();
+    });
+  });
+}
+
 function rgbReturner() {
-    const randomColor = () => Math.floor(Math.random() * 256); 
-    return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+  const randomColor = () => Math.floor(Math.random() * 256);
+  return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
 }
 
 function makeRows(rows, columns) {
@@ -45,33 +78,22 @@ function mouseDiv() {
   const hoverDivs = document.querySelectorAll("#divColumn");
   hoverDivs.forEach((hoverDiv) => {
     hoverDiv.addEventListener("mouseover", () => {
-      if (rgbSwitch) {
-        hoverDiv.style.background = rgbReturner();
-        console.log("rgb mode draws")
+      if (eraserSwitch == false) {
+        if (rgbSwitch) {
+          hoverDiv.style.background = rgbReturner();
+          console.log("rgb mode draws");
+        } else {
+          hoverDiv.style.background = "black";
+        }
       } else {
-        hoverDiv.style.background = "black";
+        hoverDiv.style.background = "white";
       }
-    });
-  });
-}
-
-function resetCanvas() {
-  const columnDivs = document.querySelectorAll("#divColumn");
-  columnDivs.forEach((columnDiv) => {
-    columnDiv.style.background = "white";
-  });
-}
-
-function resetButton() {
-  const resButton = document.querySelectorAll("#reset-button");
-  resButton.forEach((button) => {
-    button.addEventListener("click", () => {
-      resetCanvas();
     });
   });
 }
 
 makeRows(32, 32);
 resetButton();
+eraserButton();
 mouseDiv();
 rgbSwitcher();
