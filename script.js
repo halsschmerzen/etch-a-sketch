@@ -12,7 +12,6 @@ function rgbSwitcher() {
       rgbSwitch = !rgbSwitch;
       if (rgbSwitch) {
         rgbStatus.textContent = "RGB Mode: on";
-        rgbReturner
       } else {
         rgbStatus.textContent = "RGB Mode: off";
       }
@@ -21,12 +20,9 @@ function rgbSwitcher() {
 }
 
 function rgbReturner() {
-    const rgbColors = ["red", "green", "blue"];
-    while(rgbSwitch==true) {
-        return rgbColors[Math.random()*rgbColors.length];
-    }
+    const randomColor = () => Math.floor(Math.random() * 256); 
+    return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
 }
-
 
 function makeRows(rows, columns) {
   // Create Rows
@@ -49,10 +45,16 @@ function mouseDiv() {
   const hoverDivs = document.querySelectorAll("#divColumn");
   hoverDivs.forEach((hoverDiv) => {
     hoverDiv.addEventListener("mouseover", () => {
-      hoverDiv.style.background = "black";
+      if (rgbSwitch) {
+        hoverDiv.style.background = rgbReturner();
+        console.log("rgb mode draws")
+      } else {
+        hoverDiv.style.background = "black";
+      }
     });
   });
 }
+
 function resetCanvas() {
   const columnDivs = document.querySelectorAll("#divColumn");
   columnDivs.forEach((columnDiv) => {
