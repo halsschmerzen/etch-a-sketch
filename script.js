@@ -92,7 +92,7 @@ function mouseDiv() {
   });
 }
 
-makeRows(32, 32);
+makeRows(32,32);
 resetButton();
 eraserButton();
 mouseDiv();
